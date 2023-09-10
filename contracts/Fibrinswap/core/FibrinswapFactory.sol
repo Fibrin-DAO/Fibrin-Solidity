@@ -9,7 +9,6 @@ import "./interfaces/IUniswapV2FactoryV5.sol";
 
 contract FibrinswapFactory is IUniswapV2FactoryV5, zContract {
     error SenderNotSystemContract();
-    // error IdenticalAddress();
     SystemContract public immutable systemContract;
 
     address public override feeToSetter;

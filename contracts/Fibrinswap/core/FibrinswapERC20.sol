@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
 
-import "@zetachain/protocol-contracts/contracts/zevm/SystemContract.sol";
-import "@zetachain/protocol-contracts/contracts/zevm/interfaces/zContract.sol";
-
 import "./interfaces/IUniswapV2ERC20V5.sol";
 
-contract FibrinswapERC20 is zContract, IUniswapV2ERC20V5 {
-    error SenderNotSystemContract();
-    SystemContract public immutable systemContract;
+contract FibrinswapERC20 is IUniswapV2ERC20V5 {
 
     string public constant override name = 'Fibrinswap V1';
     string public constant override symbol = 'FS-V1';
@@ -22,8 +17,7 @@ contract FibrinswapERC20 is zContract, IUniswapV2ERC20V5 {
     bytes32 public constant override PERMIT_TYPEHASH = 0x6e71edae12b1b97f4d1f60370fef10105fa2faae0126114a169c64845d6126c9;
     mapping(address => uint) public override nonces;
 
-    constructor(address systemContractAddress) {
-        systemContract = SystemContract(systemContractAddress);
+    constructor() {
         uint chainId = block.chainid;
         DOMAIN_SEPARATOR = keccak256(
             abi.encode(
@@ -34,18 +28,6 @@ contract FibrinswapERC20 is zContract, IUniswapV2ERC20V5 {
                 address(this)
             )
         );
-    }
-
-    function onCrossChainCall(
-        zContext calldata context,
-        address zrc20,
-        uint256 amount,
-        bytes calldata message
-    ) external virtual override {
-        if (msg.sender != address(systemContract)) {
-            revert SenderNotSystemContract();
-        }
-        // TODO: implement the logic
     }
 
     function _mint(address to, uint value) internal {
