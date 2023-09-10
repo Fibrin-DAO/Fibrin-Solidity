@@ -67,7 +67,7 @@ const _abi = [
         type: "uint256",
       },
     ],
-    name: "getSUpplyRate",
+    name: "getSupplyRate",
     outputs: [
       {
         internalType: "uint256",

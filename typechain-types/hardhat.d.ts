@@ -21,6 +21,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IAccessControl__factory>;
     getContractFactory(
+      name: "Ownable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Ownable__factory>;
+    getContractFactory(
       name: "ERC20",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC20__factory>;
@@ -57,9 +61,37 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.SystemContractErrors__factory>;
     getContractFactory(
+      name: "FibrinStablecoin",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.FibrinStablecoin__factory>;
+    getContractFactory(
+      name: "FibrinswapERC20",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.FibrinswapERC20__factory>;
+    getContractFactory(
+      name: "FibrinswapFactory",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.FibrinswapFactory__factory>;
+    getContractFactory(
+      name: "FibrinswapPair",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.FibrinswapPair__factory>;
+    getContractFactory(
+      name: "IUniswapV2ERC20V5",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IUniswapV2ERC20V5__factory>;
+    getContractFactory(
+      name: "IUniswapV2FactoryV5",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IUniswapV2FactoryV5__factory>;
+    getContractFactory(
       name: "InterestRateModel",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.InterestRateModel__factory>;
+    getContractFactory(
+      name: "Oracle",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Oracle__factory>;
     getContractFactory(
       name: "ZToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -75,6 +107,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IAccessControl>;
+    getContractAt(
+      name: "Ownable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Ownable>;
     getContractAt(
       name: "ERC20",
       address: string,
@@ -121,10 +158,45 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.SystemContractErrors>;
     getContractAt(
+      name: "FibrinStablecoin",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.FibrinStablecoin>;
+    getContractAt(
+      name: "FibrinswapERC20",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.FibrinswapERC20>;
+    getContractAt(
+      name: "FibrinswapFactory",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.FibrinswapFactory>;
+    getContractAt(
+      name: "FibrinswapPair",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.FibrinswapPair>;
+    getContractAt(
+      name: "IUniswapV2ERC20V5",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IUniswapV2ERC20V5>;
+    getContractAt(
+      name: "IUniswapV2FactoryV5",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IUniswapV2FactoryV5>;
+    getContractAt(
       name: "InterestRateModel",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.InterestRateModel>;
+    getContractAt(
+      name: "Oracle",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Oracle>;
     getContractAt(
       name: "ZToken",
       address: string,

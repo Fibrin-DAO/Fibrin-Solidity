@@ -38,7 +38,7 @@ export type ZContextStructOutput = [string, string, BigNumber] & {
 export interface InterestRateModelInterface extends utils.Interface {
   functions: {
     "getBorrowRate(uint256,uint256,uint256)": FunctionFragment;
-    "getSUpplyRate(uint256,uint256,uint256,uint256)": FunctionFragment;
+    "getSupplyRate(uint256,uint256,uint256,uint256)": FunctionFragment;
     "onCrossChainCall((bytes,address,uint256),address,uint256,bytes)": FunctionFragment;
     "setDynamicReserveFactor(uint256)": FunctionFragment;
     "setRateCaps(uint256,uint256)": FunctionFragment;
@@ -49,7 +49,7 @@ export interface InterestRateModelInterface extends utils.Interface {
   getFunction(
     nameOrSignatureOrTopic:
       | "getBorrowRate"
-      | "getSUpplyRate"
+      | "getSupplyRate"
       | "onCrossChainCall"
       | "setDynamicReserveFactor"
       | "setRateCaps"
@@ -66,7 +66,7 @@ export interface InterestRateModelInterface extends utils.Interface {
     ]
   ): string;
   encodeFunctionData(
-    functionFragment: "getSUpplyRate",
+    functionFragment: "getSupplyRate",
     values: [
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
@@ -105,7 +105,7 @@ export interface InterestRateModelInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getSUpplyRate",
+    functionFragment: "getSupplyRate",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -166,7 +166,7 @@ export interface InterestRateModel extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    getSUpplyRate(
+    getSupplyRate(
       cash: PromiseOrValue<BigNumberish>,
       borrow: PromiseOrValue<BigNumberish>,
       reserve: PromiseOrValue<BigNumberish>,
@@ -209,7 +209,7 @@ export interface InterestRateModel extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  getSUpplyRate(
+  getSupplyRate(
     cash: PromiseOrValue<BigNumberish>,
     borrow: PromiseOrValue<BigNumberish>,
     reserve: PromiseOrValue<BigNumberish>,
@@ -252,7 +252,7 @@ export interface InterestRateModel extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getSUpplyRate(
+    getSupplyRate(
       cash: PromiseOrValue<BigNumberish>,
       borrow: PromiseOrValue<BigNumberish>,
       reserve: PromiseOrValue<BigNumberish>,
@@ -298,7 +298,7 @@ export interface InterestRateModel extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getSUpplyRate(
+    getSupplyRate(
       cash: PromiseOrValue<BigNumberish>,
       borrow: PromiseOrValue<BigNumberish>,
       reserve: PromiseOrValue<BigNumberish>,
@@ -342,7 +342,7 @@ export interface InterestRateModel extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getSUpplyRate(
+    getSupplyRate(
       cash: PromiseOrValue<BigNumberish>,
       borrow: PromiseOrValue<BigNumberish>,
       reserve: PromiseOrValue<BigNumberish>,
